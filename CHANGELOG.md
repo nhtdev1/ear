@@ -1,3 +1,4 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+- Initial Open Sources
+- Handle all coming notification for android
