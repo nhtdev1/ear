@@ -18,7 +18,7 @@ ear: ^0.0.1
 import 'package:ear/ear.dart';
 ```
 
-## 1.Subcribe to stream to listen all coming notification 
+## 1. Subcribe to stream to listen all coming notification 
 
 ```dart
  void startListening() {
@@ -30,13 +30,13 @@ import 'package:ear/ear.dart';
   }
 ```
 
-### 2.Unsubcribe from stream
+### 2. Unsubcribe from stream
 
 ```dart
  _earSubscription?.cancel();
 ```
 
-### 3.Register to start listenning
+### 3. Call register to start listenning
 
 ```dart
  Ear.register();
