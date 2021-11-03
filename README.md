@@ -3,8 +3,6 @@
 
 A Library to handle all coming notification for android
 
-## Toast with no context
-
 > Supported Platforms
 >
 > - Android
