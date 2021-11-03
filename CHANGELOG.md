@@ -1,3 +1,11 @@
+## 0.0.3
+
+* Update changelog
+* Update readme
+* Update pubspec.yaml
+* Update ear model contains more info about notification
+* Add timestamp of notification
+
 ## 0.0.2
 
 * Updated readme

@@ -11,7 +11,7 @@ A Library to handle all coming notification for android
 
 ```yaml
 # add this line to your dependencies
-ear: ^0.0.1
+ear: ^0.0.3
 ```
 
 ```dart
@@ -40,6 +40,15 @@ import 'package:ear/ear.dart';
 
 ```dart
  Ear.register();
+```
+
+### 4. To check type of specific notifcation
+
+```dart
+earModel.isFromFacebook();
+earModel.isFromGmail();
+earModel.isFromSkpe();
+...
 ```
 
 ## If you need any features suggest

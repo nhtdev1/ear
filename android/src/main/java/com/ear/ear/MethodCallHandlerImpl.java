@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.ear.ear.config.Config;
 import com.google.gson.Gson;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 
 import io.flutter.plugin.common.EventChannel;
@@ -79,6 +80,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler, P
                     payload.put("message", message);
                     payload.put("text", text);
                     payload.put("extra", extra);
+                    payload.put("timestamp",new Timestamp(System.currentTimeMillis()));
                     if (events != null) events.success(new Gson().toJson(payload));
                     return;
                 }
