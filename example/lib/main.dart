@@ -5,14 +5,14 @@ import 'dart:convert';
 
 import 'package:ear/ear.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(HomePage());
 
-class MyApp extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _HomePageState extends State<HomePage> {
   StreamSubscription<EarModel> _earSubscription;
 
   @override
@@ -21,17 +21,13 @@ class _MyAppState extends State<MyApp> {
     initPlatformState();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    startListening();
-  }
+  /// Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async => startListening();
 
-  void onData(EarModel event) {
-    print(event);
-    print('converting package extra to json');
-    print(event.packageName);
-  }
+  void onData(EarModel event) => print(event.packageName);
 
+  /// To get the infor of notification, you just subscribe to
+  /// [ Stream<EarModel>]
   void startListening() {
     try {
       _earSubscription = Ear.instance.earStream.listen(onData);
@@ -40,22 +36,28 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  /// IMPORTANT: before you is killed, you must call cancel stream to
+  /// avoid memory leak
   void stopListening() => _earSubscription?.cancel();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
+        appBar: AppBar(title: const Text('Ear example app')),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
             bool result = await Ear.register();
-            print(result);
+            print(result ? "Start listenning successfully" :"Start listenning failure");
           },
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    stopListening();
+    super.dispose();
   }
 }

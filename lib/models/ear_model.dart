@@ -1,3 +1,4 @@
+/// The class contains the information from coming notification
 class EarModel {
   const EarModel({
     this.packageName,
@@ -6,6 +7,7 @@ class EarModel {
     this.extra,
     this.timestamp,
   });
+
   final String packageName;
   final String message;
   final String text;
