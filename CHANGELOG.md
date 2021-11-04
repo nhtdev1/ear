@@ -1,3 +1,8 @@
+## 0.0.5
+
+* Update readme
+* Update example
+
 ## 0.0.4
 
 * Fix timestamp convert
