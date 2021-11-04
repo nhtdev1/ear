@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   /// IMPORTANT: before you is killed, you must call cancel stream to
   /// avoid memory leak
-  void stopListening() => _earSubscription?.cancel();
+  void stopListening() => _earSubscription.cancel();
 
   @override
   Widget build(BuildContext context) {
