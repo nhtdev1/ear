@@ -1,7 +1,6 @@
 import 'package:ear/models/models.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:ear/ear.dart';
 
@@ -13,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  StreamSubscription<EarModel> _earSubscription;
+  late StreamSubscription<EarModel> _earSubscription;
 
   @override
   void initState() {
@@ -30,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   /// [ Stream<EarModel>]
   void startListening() {
     try {
-      _earSubscription = Ear.instance.earStream.listen(onData);
+      _earSubscription = Ear.instance.earStream!.listen(onData);
     } on EarModel catch (exception) {
       print(exception);
     }

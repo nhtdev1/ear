@@ -1,3 +1,7 @@
+## 0.0.6
+
+* Support Sound null safety
+
 ## 0.0.5
 
 * Update readme

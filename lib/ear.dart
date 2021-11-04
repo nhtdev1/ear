@@ -14,7 +14,7 @@ class Ear {
 
   static Ear get instance => _instance;
 
-  Stream<EarModel> _earStream;
+  Stream<EarModel>? _earStream;
 
   static const MethodChannel _channel = const MethodChannel('ear/command');
 
@@ -22,7 +22,7 @@ class Ear {
 
   static EventChannel eventChannel() => _eventChannel;
 
-  Stream<EarModel> get earStream {
+  Stream<EarModel>? get earStream {
     if (Platform.isAndroid) {
       if (_earStream == null) {
         _earStream = Ear.eventChannel().receiveBroadcastStream().map(_earEvent);
