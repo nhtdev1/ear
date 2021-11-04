@@ -1,6 +1,8 @@
 
 # [ear](https://pub.dev/packages/ear)  
 
+![iconoir_chat-bubble-check-1](https://user-images.githubusercontent.com/35698467/140308408-49e5d3b9-5afe-4f25-b6ad-c86fb0ea7a99.png)
+
 A Library to handle all coming notification for android
 
 > Supported Platforms
