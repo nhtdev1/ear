@@ -38,4 +38,9 @@ class Ear {
   /// Register to start listenning coming notification
   static Future<bool> register() async =>
       await _channel.invokeMethod('register');
+
+  static Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
 }

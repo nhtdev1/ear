@@ -27,8 +27,8 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
  * EarPlugin
  *
  * @Author: nhoangthinh@tma.com.vn
- * Created: 01/05/2021
- * Updated: 26/10/2021
+ * @version 0.0.4
+ * @since 2021-11-01
  */
 public class EarPlugin implements FlutterPlugin, ActivityAware {
     private final static String TAG = EarPlugin.class.getSimpleName();

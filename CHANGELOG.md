@@ -1,3 +1,9 @@
+## 0.0.4
+
+* Fix timestamp convert
+* Add check notification setting enable or not
+* Update ear model
+
 ## 0.0.3
 
 * Update changelog

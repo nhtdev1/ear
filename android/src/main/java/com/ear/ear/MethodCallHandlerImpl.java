@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,15 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
+
+/**
+ * The MethodCallHandlerImpl  implements an MethodCallHandler that
+ * communicate with flutter layer
+ *
+ * @author nht.studio.vn@gmail.com
+ * @version 0.0.4
+ * @since 2021-11-04
+ */
 public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler, PluginRegistry.RequestPermissionsResultListener {
 
     private final Context mContext;
@@ -41,7 +51,8 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler, P
                 Intent intent = new Intent(
                         "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
                 if (activity != null) {
-                    activity.startActivity(intent);
+                    if (!checkNotificationEnabled(activity))
+                        activity.startActivity(intent);
                     result.success(true);
                 } else {
                     result.success(false);
@@ -80,7 +91,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler, P
                     payload.put("message", message);
                     payload.put("text", text);
                     payload.put("extra", extra);
-                    payload.put("timestamp",new Timestamp(System.currentTimeMillis()));
+                    payload.put("timestamp", new Timestamp(System.currentTimeMillis()).getTime());
                     if (events != null) events.success(new Gson().toJson(payload));
                     return;
                 }
@@ -90,5 +101,25 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler, P
 
     public void setActivity(@Nullable Activity activity) {
         this.activity = activity;
+    }
+
+    /**
+     * This method is used to check whether user has accept notification setting or not yet
+     *
+     * @param activity
+     */
+    private boolean checkNotificationEnabled(@Nullable Activity activity) {
+        try {
+            if (Settings.Secure.getString(activity.getContentResolver(),
+                    "enabled_notification_listeners").contains(mContext.getPackageName())) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

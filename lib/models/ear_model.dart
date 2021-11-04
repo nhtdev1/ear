@@ -8,15 +8,10 @@ class EarModel {
     this.timestamp,
   });
 
-  /// Contains notification type like facebook, instagram,...
   final String packageName;
-  /// Contains content of notification
   final String message;
-  /// Contains title of notification
   final String text;
-  /// Contains more info about notification
   final String extra;
-  /// Contains timestamp of notification
   final int timestamp;
 
   static const empty =
@@ -39,7 +34,7 @@ class EarModel {
 
   bool get isFromGmail => this.packageName == "com.google.android.gm";
 
-  bool get isFromSkpe => this.packageName == "com.skype.raider";
+  bool get isFromSkype => this.packageName == "com.skype.raider";
 
   bool get isFromWhatsApp => this.packageName == "com.whatsapp";
 
@@ -57,9 +52,9 @@ class EarModel {
 
   bool get isFromWeChat => this.packageName == "com.tencent.mm";
 
-  bool get isFromPhoneCall => this.packageName == "com.snapchat";
+  bool get isFromPhoneCall => this.packageName == "com.google.android.dialer";
 
-  bool get isFromSms => this.packageName == "com.snapchat";
+  bool get isFromSms => this.packageName == "com.google.android.apps.messaging";
 
   bool get isFromTiktok => this.packageName == "com.ss.android.ugc.trill";
 
