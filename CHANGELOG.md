@@ -1,3 +1,7 @@
+## 0.0.7
+
+* The app cannot receive notifications when killing app and reopen (https://github.com/nhtdev1/ear/issues/1)
+
 ## 0.0.6
 
 * Support Sound null safety

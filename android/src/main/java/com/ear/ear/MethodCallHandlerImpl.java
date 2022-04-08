@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.ear.ear.config.Config;
+import com.ear.ear.service.NotificationService;
 import com.google.gson.Gson;
 
 import java.sql.Timestamp;
@@ -38,6 +39,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler, P
 
     MethodCallHandlerImpl(Context mContext) {
         this.mContext = mContext;
+        mContext.startService(new Intent(mContext, NotificationService.class));
     }
 
 

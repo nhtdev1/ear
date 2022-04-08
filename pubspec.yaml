@@ -1,6 +1,6 @@
 name: ear
 description: A flutter plugin project to handle all coming notification for android platform platforms.
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/nhoangthinh/ear
 
 environment:
